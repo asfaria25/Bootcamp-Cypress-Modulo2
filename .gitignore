@@ -6,3 +6,5 @@ mochawesome-report
 
 # videos
 cypress/videos
+cypress/screenshots
+cypress/reports

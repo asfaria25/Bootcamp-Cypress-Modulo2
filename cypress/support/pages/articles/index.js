@@ -25,13 +25,13 @@ class Articles {
 
     }
     verificarSeAPublicacaoFoiCriadaComSucesso() {
-        cy.wait(`@${Routes.as.postarticles}`).then((postarticlesresponse) => {
+        cy.wait(`@${Routes.as.postArticles}`).then((postarticlesresponse) => {
             expect(postarticlesresponse.status).to.eq(200)
         })
-        cy.wait(`@${Routes.as.getarticlesTitle}`).then((getarticlesTitleresponse) => {
+        cy.wait(`@${Routes.as.getArticlesTitle}`).then((getarticlesTitleresponse) => {
             expect(getarticlesTitleresponse.status).to.eq(200)
         })
-        cy.wait(`@${Routes.as.getarticlesTitleComments}`).then((getarticlesTitleCommentsresponse) => {
+        cy.wait(`@${Routes.as.getArticlesTitleComments}`).then((getarticlesTitleCommentsresponse) => {
             expect(getarticlesTitleCommentsresponse.status).to.eq(200)
         })
     }

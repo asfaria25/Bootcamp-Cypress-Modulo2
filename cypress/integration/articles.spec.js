@@ -1,7 +1,6 @@
 /// <reference types="Cypress" />
-
 import articles from '../support/pages/articles'
-import Routes from '../support/routes'
+
 context('Articles', () => {
     beforeEach(() => {
         //Preparação
