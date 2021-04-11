@@ -1,5 +1,7 @@
+/// <reference types="cypress" />
 const faker = require("faker");
 const el = require('./elements').ELEMENTS
+import Routes from '../../routes'
 
 class Articles {
 
@@ -18,7 +20,20 @@ class Articles {
 
     SubmeterPublicacao() {
         //Submeter Artigo
+
         cy.get(el.buttonSubmit).click();
+
+    }
+    verificarSeAPublicacaoFoiCriadaComSucesso() {
+        cy.wait(`@${Routes.as.postarticles}`).then((postarticlesresponse) => {
+            expect(postarticlesresponse.status).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.getarticlesTitle}`).then((getarticlesTitleresponse) => {
+            expect(getarticlesTitleresponse.status).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.getarticlesTitleComments}`).then((getarticlesTitleCommentsresponse) => {
+            expect(getarticlesTitleCommentsresponse.status).to.eq(200)
+        })
     }
 }
 

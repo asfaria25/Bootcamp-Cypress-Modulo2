@@ -7,5 +7,6 @@ context('Cadastro', () => {
         cadastro.acessarCadastro();
         cadastro.preencherFormulario();
         cadastro.submeterFormulario();
+        cadastro.verificarSeCadastroFoiCriadaComSucesso();
     });
 });

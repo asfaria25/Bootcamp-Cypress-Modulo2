@@ -6,6 +6,7 @@ context('Login', () => {
         login.acessarLogin();
         login.preencherFormulario();
         login.submeterFormulario();
+        login.verificarSeLoginFoiCriadaComSucesso();
 
     });
 });

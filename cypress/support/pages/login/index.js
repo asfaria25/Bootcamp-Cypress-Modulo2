@@ -1,5 +1,5 @@
 const el = require('./elements').ELEMENTS
-
+import Routes from '../../routes'
 class login {
     acessarLogin() {
         cy.visit('login');
@@ -10,6 +10,17 @@ class login {
     }
     submeterFormulario() {
         cy.get(el.buttonSubmit).click();
+    }
+    verificarSeLoginFoiCriadaComSucesso() {
+        cy.wait(`@${Routes.as.postLogin}`).then((postloginresponse) => {
+            expect(postloginresponse.status).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.getTags}`).then((gettagsresponse) => {
+            expect(gettagsresponse.status).to.eq(200)
+        })
+        cy.wait(`@${Routes.as.getArticlesFeed}`).then((getarticlesfeedresponse) => {
+            expect(getarticlesfeedresponse.status).to.eq(200)
+        })
     }
 }
 
